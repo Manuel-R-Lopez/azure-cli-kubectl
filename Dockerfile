@@ -1,5 +1,6 @@
 FROM golang:1.8
 FROM microsoft/azure-cli
+FROM java:8
 
 LABEL authors="Trueconnect"
 
@@ -11,8 +12,6 @@ RUN wget https://storage.googleapis.com/kubernetes-helm/helm-v2.12.1-linux-amd64
 RUN tar -zxvf helm.tgz
 RUN cp linux-amd64/helm /usr/local/bin/helm
 RUN chmod +x /usr/local/bin/helm
-
-FROM java:8
 
 # preserve Java 8  from the maven install.
 RUN mv /etc/alternatives/java /etc/alternatives/java8
