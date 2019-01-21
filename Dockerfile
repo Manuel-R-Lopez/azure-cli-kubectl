@@ -1,6 +1,5 @@
-FROM golang:1.8
-FROM microsoft/azure-cli
 FROM java:8
+FROM microsoft/azure-cli
 
 LABEL authors="Trueconnect"
 
@@ -13,10 +12,11 @@ RUN tar -zxvf helm.tgz
 RUN cp linux-amd64/helm /usr/local/bin/helm
 RUN chmod +x /usr/local/bin/helm
 
+RUN wget https://storage.googleapis.com/golang/go1.8-amd64.tar.gz -qO go.tgz
+RUN tar -zxvf go.tgz
+RUN cp linux-amd64/go /usr/local/bin/go
+RUN chmod +x /usr/local/bin/go
+
 # preserve Java 8  from the maven install.
 RUN mv /etc/alternatives/java /etc/alternatives/java8
 RUN apt-get update -y && apt-get install maven -y
-
-# Restore Java 8
-RUN mv -f /etc/alternatives/java8 /etc/alternatives/java
-RUN ls -l /usr/bin/java && java -version
