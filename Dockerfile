@@ -3,8 +3,8 @@ FROM microsoft/azure-cli
 
 LABEL authors="Trueconnect"
 
-RUN wget https://golang.org/doc/install?download=go1.8.7.linux-arm64.tar.gz -qO go.tgz
-RUN tar -zxvf go.tgz
+RUN wget https://golang.org/doc/install?download=go1.8.7.linux-arm64.tar.gz -q
+RUN tar -zxvf go1.8.7.linux-arm64.tar.gz
 RUN cp linux-amd64/go /usr/local/bin/go
 RUN chmod +x /usr/local/bin/go
 
@@ -13,7 +13,7 @@ RUN wget https://storage.googleapis.com/kubernetes-release/release/v1.10.12/bin/
 RUN chmod +x /usr/local/bin/kubectl
 
 RUN wget https://storage.googleapis.com/kubernetes-helm/helm-v2.12.1-linux-amd64.tar.gz -qO helm.tgz
-RUN tar -zxvf helm.tgz
+RUN tar helm.tgz
 RUN cp linux-amd64/helm /usr/local/bin/helm
 RUN chmod +x /usr/local/bin/helm
 
