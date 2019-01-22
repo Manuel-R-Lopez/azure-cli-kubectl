@@ -4,8 +4,7 @@ FROM microsoft/azure-cli
 LABEL authors="Trueconnect"
 
 RUN wget https://golang.org/doc/install?download=go1.8.7.linux-arm64.tar.gz
-RUN tar -zxvf go1.8.7.linux-arm64.tar.gz
-RUN mv /usr/local
+RUN tar -C /usr/local -xzf go1.8.7.linux-arm64.tar.gz;
 ENV GOROOT=/usr/local/go
 
 ENV KUBERNETES_VERSION=1.10.12
