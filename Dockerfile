@@ -4,6 +4,7 @@ FROM microsoft/azure-cli
 LABEL authors="Trueconnect"
 
 RUN wget https://golang.org/doc/install?download=go1.8.7.linux-arm64.tar.gz
+RUN ls -l
 RUN tar -C /usr/local -xzf go1.8.7.linux-arm64.tar.gz;
 ENV GOROOT=/usr/local/go
 
