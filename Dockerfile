@@ -3,10 +3,10 @@ FROM microsoft/azure-cli
 
 LABEL authors="Trueconnect"
 
-RUN wget https://golang.org/doc/install?download=go1.8.7.linux-arm64.tar.gz -q
+RUN wget https://golang.org/doc/install?download=go1.8.7.linux-arm64.tar.gz
 RUN tar -zxvf go1.8.7.linux-arm64.tar.gz
-RUN cp linux-amd64/go /usr/local/bin/go
-RUN chmod +x /usr/local/bin/go
+RUN mv /usr/local
+ENV GOROOT=/usr/local/go
 
 ENV KUBERNETES_VERSION=1.10.12
 RUN wget https://storage.googleapis.com/kubernetes-release/release/v1.10.12/bin/linux/amd64/kubectl -qO /usr/local/bin/kubectl
