@@ -6,7 +6,7 @@ ENV HELM_VERSION=2.11.0
 
 RUN wget https://storage.googleapis.com/kubernetes-release/release/v${KUBERNETES_VERSION}/bin/linux/amd64/kubectl -qO /usr/local/bin/kubectl
 RUN chmod +x /usr/local/bin/kubectl
-RUN apt-get install nano
+RUN apk add --no-cache bash curl nano
 
 RUN wget https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz -qO helm.tgz
 RUN tar -zxvf helm.tgz
