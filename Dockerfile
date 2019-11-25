@@ -1,6 +1,6 @@
 FROM microsoft/azure-cli
-LABEL authors="Trueconnect"
 
+# These should be changed as required to stay in sync with your target kubernetes environment
 ENV KUBERNETES_VERSION=1.14.7
 ENV HELM_VERSION=2.16.1
 
